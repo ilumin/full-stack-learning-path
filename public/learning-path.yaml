@@ -115,7 +115,11 @@ phases:
               - "2.18: Data for countries, step 1"
               - "2.19: Data for countries, step 2"
               - "2.20: Data for countries, step 3"
-        additionals: []
+        additionals: 
+          - name: "Skooldio Material UI v6"
+            url: "https://www.skooldio.com/courses/material-ui-v6"
+          - name: "Tailwind CSS"
+            url: "https://www.skooldio.com/courses/tailwind-css-v3"
 
       - id: nodejs_express
         name: "3. NodeJS and Express"
