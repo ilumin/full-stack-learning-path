@@ -76,17 +76,15 @@ export const useProgress = () => {
         const parsedProgress = JSON.parse(savedProgress);
         if (parsedProgress && typeof parsedProgress === 'object') {
           setProgress(parsedProgress);
-          console.log('Progress loaded from storage:', Object.keys(parsedProgress).length, 'items');
         }
       } else {
-        console.log('No saved progress found in storage');
+        // No saved progress found in storage
       }
     } catch (error) {
       console.error('Error loading progress from storage:', error);
       // Try to recover from memory
       if (Object.keys(memoryStorage).length > 0) {
         setProgress(memoryStorage);
-        console.log('Progress recovered from memory:', Object.keys(memoryStorage).length, 'items');
       }
     } finally {
       setIsLoaded(true);
@@ -100,7 +98,6 @@ export const useProgress = () => {
     try {
       const progressString = JSON.stringify(progress);
       storage.setItem(STORAGE_KEY, progressString);
-      console.log('Progress saved to storage:', Object.keys(progress).length, 'items');
     } catch (error) {
       console.error('Error saving progress to storage:', error);
     }
@@ -112,7 +109,6 @@ export const useProgress = () => {
         ...prev,
         [exerciseId]: !prev[exerciseId]
       };
-      console.log('Exercise toggled:', exerciseId, 'New state:', newProgress[exerciseId]);
       return newProgress;
     });
   };
@@ -123,7 +119,6 @@ export const useProgress = () => {
         ...prev,
         [chapterId]: !prev[chapterId]
       };
-      console.log('Chapter toggled:', chapterId, 'New state:', newProgress[chapterId]);
       return newProgress;
     });
   };
@@ -202,7 +197,6 @@ export const useProgress = () => {
         version: '1.0'
       };
       storage.setItem(BACKUP_KEY, JSON.stringify(backupData));
-      console.log('Backup created successfully');
     } catch (error) {
       console.error('Error creating backup:', error);
     }
@@ -210,30 +204,20 @@ export const useProgress = () => {
 
   // Debug function to check storage
   const debugStorage = () => {
-    console.log('=== Storage Debug ===');
-    console.log('localStorage available:', isStorageAvailable());
-    console.log('isLoaded:', isLoaded);
-    console.log('Current progress in state:', progress);
-    console.log('Progress items count:', Object.keys(progress).length);
-    console.log('Memory storage:', memoryStorage);
-    console.log('Memory items count:', Object.keys(memoryStorage).length);
-
+    // Debug storage function - logs removed for production
     try {
       const stored = storage.getItem(STORAGE_KEY);
       const backup = storage.getItem(BACKUP_KEY);
-      console.log('Raw stored value:', stored);
-      console.log('Parsed stored value:', stored ? JSON.parse(stored) : 'null');
-      console.log('Backup value:', backup ? JSON.parse(backup) : 'null');
 
-      // Check all storage types
+      // Storage debug data available but not logged
+      // Check all storage types silently
       if (isStorageAvailable()) {
-        console.log('localStorage value:', localStorage.getItem(STORAGE_KEY));
+        localStorage.getItem(STORAGE_KEY);
       }
-      console.log('sessionStorage value:', sessionStorage.getItem(STORAGE_KEY));
+      sessionStorage.getItem(STORAGE_KEY);
     } catch (error) {
       console.error('Error parsing stored values:', error);
     }
-    console.log('====================');
   };
 
   const restoreFromBackup = (): boolean => {
