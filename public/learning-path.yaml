@@ -161,6 +161,55 @@ phases:
           - name: "NestJS Handbook"
             url: "https://www.freecodecamp.org/news/the-nestjs-handbook-learn-to-use-nest-with-code-examples/"
 
+  - id: testing_quality
+    name: "Phase 3: Testing & Quality"
+    description: "เรียนรู้การ test ทั้งฝั่ง backend และ frontend"
+    modules:
+      - id: testing_express
+        name: "4. Testing Express"
+        description: "ทำความเข้าใจกับโครงสร้างเพื่อทำ test"
+        chapters:
+          - id: structure_of_backend_application
+            name: "Structure of backend application, introduction to testing"
+            url: "https://fullstackopen.com/en/part4/structure_of_backend_application_introduction_to_testing"
+            exercises:
+              - "4.1: Blog list, step1"
+              - "4.2: Blog list, step2"
+          - id: testing_the_backend
+            name: "Testing the backend"
+            url: "https://fullstackopen.com/en/part4/testing_the_backend"
+            exercises:
+              - "4.3: helper functions and unit tests, step1"
+              - "4.4: helper functions and unit tests, step2"
+              - "4.5: helper functions and unit tests, step3"
+              - "4.6: helper functions and unit tests, step4"
+              - "4.7: helper functions and unit tests, step5"
+          - id: user_administration
+            name: "User administration"
+            url: "https://fullstackopen.com/en/part4/user_administration"
+            exercises:
+              - "4.8: Blog list tests, step1"
+              - "4.9: Blog list tests, step2"
+              - "4.10: Blog list tests, step3"
+              - "4.11: Blog list tests, step4"
+              - "4.12: Blog list tests, step5"
+          - id: token_authentication
+            name: "Token authentication"
+            url: "https://fullstackopen.com/en/part4/token_authentication"
+            exercises:
+              - "4.13: Blog list expansions, step1"
+              - "4.14: Blog list expansions, step2"
+              - "4.15: bloglist expansion, step3"
+              - "4.16: bloglist expansion, step4"
+              - "4.17: bloglist expansion, step5"
+              - "4.18: bloglist expansion, step6"
+              - "4.19: bloglist expansion, step7"
+              - "4.20: bloglist expansion, step8"
+              - "4.21: bloglist expansion, step9"
+              - "4.22: bloglist expansion, step10"
+              - "4.23: bloglist expansion, step11"
+        additionals: []
+
 optional_modules:
   - id: graphql
     name: "8. GraphQL"
