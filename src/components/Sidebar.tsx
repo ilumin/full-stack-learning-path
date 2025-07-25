@@ -14,7 +14,6 @@ interface SidebarProps {
 
 export const Sidebar: React.FC<SidebarProps> = ({
   learningPath,
-  progress,
   isChapterCompleted,
   isExerciseCompleted,
   onNavigate
@@ -82,7 +81,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
         total: phaseTotalTasks
       };
     });
-  }, [learningPath.phases, progress, isChapterCompleted, isExerciseCompleted]);
+  }, [
+    learningPath.phases,
+    isChapterCompleted,
+    isExerciseCompleted
+  ]);
 
   const completedPhases = phaseStats.filter(phase => phase.progress === 100).length;
 

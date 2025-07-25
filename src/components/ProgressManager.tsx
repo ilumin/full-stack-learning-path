@@ -38,6 +38,7 @@ export const ProgressManager: React.FC<ProgressManagerProps> = ({ onClose }) => 
       setMessage({ type: 'success', text: 'Progress exported successfully!' });
       setTimeout(() => setMessage(null), 3000);
     } catch (error) {
+      console.error(error)
       setMessage({ type: 'error', text: 'Failed to export progress' });
       setTimeout(() => setMessage(null), 3000);
     }
@@ -60,6 +61,7 @@ export const ProgressManager: React.FC<ProgressManagerProps> = ({ onClose }) => 
       }
       setTimeout(() => setMessage(null), 3000);
     } catch (error) {
+      console.error(error)
       setMessage({ type: 'error', text: 'Failed to import progress' });
       setTimeout(() => setMessage(null), 3000);
     }
@@ -92,6 +94,7 @@ export const ProgressManager: React.FC<ProgressManagerProps> = ({ onClose }) => 
       setMessage({ type: 'success', text: 'Progress copied to clipboard!' });
       setTimeout(() => setMessage(null), 3000);
     } catch (error) {
+      console.error(error)
       setMessage({ type: 'error', text: 'Failed to copy to clipboard' });
       setTimeout(() => setMessage(null), 3000);
     }
