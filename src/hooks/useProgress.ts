@@ -206,9 +206,6 @@ export const useProgress = () => {
   const debugStorage = () => {
     // Debug storage function - logs removed for production
     try {
-      const stored = storage.getItem(STORAGE_KEY);
-      const backup = storage.getItem(BACKUP_KEY);
-
       // Storage debug data available but not logged
       // Check all storage types silently
       if (isStorageAvailable()) {
