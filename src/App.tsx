@@ -174,7 +174,9 @@ function App() {
               {learningPath.phases.map((phase) => (
                 <div
                   key={phase.id}
-                  ref={(el) => (phaseRefs.current[phase.id] = el)}
+                  ref={(el) => {
+                    phaseRefs.current[phase.id] = el;
+                  }}
                 >
                   <Phase
                     phase={phase}

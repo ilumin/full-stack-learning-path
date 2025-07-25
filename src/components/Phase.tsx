@@ -48,16 +48,6 @@ export const Phase: React.FC<PhaseProps> = ({
 
   const progress = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
 
-  const phaseColors = {
-    foundation: 'from-blue-500/10 to-indigo-500/10 border-blue-200',
-    client_server: 'from-emerald-500/10 to-teal-500/10 border-emerald-200',
-    testing_quality: 'from-orange-500/10 to-red-500/10 border-orange-200',
-    advanced_concepts: 'from-purple-500/10 to-pink-500/10 border-purple-200',
-    production_ready: 'from-slate-500/10 to-gray-500/10 border-slate-200'
-  };
-
-  const colorClass = phaseColors[phase.id as keyof typeof phaseColors] || phaseColors.foundation;
-
   return (
     <div className="phase-card rounded-lg border border-slate-200 mb-4 overflow-hidden">
       <div className="p-4">

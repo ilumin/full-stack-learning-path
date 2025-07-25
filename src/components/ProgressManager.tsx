@@ -10,7 +10,6 @@ export const ProgressManager: React.FC<ProgressManagerProps> = ({ onClose }) => 
     exportProgress,
     importProgress,
     resetProgress,
-    createBackup,
     restoreFromBackup,
     getProgressStats,
     debugStorage,

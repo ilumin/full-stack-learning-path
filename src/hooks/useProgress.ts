@@ -3,7 +3,6 @@ import type { ProgressData } from '../types';
 
 const STORAGE_KEY = 'fullstack-learning-progress';
 const BACKUP_KEY = 'fullstack-learning-progress-backup';
-const FALLBACK_KEY = 'fullstack-progress-fallback';
 
 // Fallback storage using sessionStorage and memory
 let memoryStorage: ProgressData = {};
