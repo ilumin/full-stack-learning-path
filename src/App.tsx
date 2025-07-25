@@ -9,7 +9,7 @@ function App() {
   const [learningPath, setLearningPath] = useState<LearningPath | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  
+
   const {
     progress,
     toggleExercise,
@@ -59,7 +59,7 @@ function App() {
             </svg>
           </div>
           <p className="text-red-600 mb-4 font-medium">{error || 'Failed to load data'}</p>
-          <button 
+          <button
             onClick={() => window.location.reload()}
             className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
           >
@@ -94,17 +94,17 @@ function App() {
             <p className="text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed">
               Complete learning path for Full Stack Web Development from University of Helsinki
             </p>
-            
+
             {/* Overall Progress */}
             <div className="max-w-md mx-auto mb-6">
-              <ProgressBar 
+              <ProgressBar
                 progress={overallProgress}
                 label="Overall Progress"
                 size="lg"
                 variant="primary"
               />
             </div>
-            
+
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a
                 href="https://fullstackopen.com/en/#course-contents"
@@ -117,7 +117,7 @@ function App() {
                 </svg>
                 Visit Course
               </a>
-              
+
               <div className="flex items-center gap-3 text-sm text-slate-600">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-green-400 rounded-full"></div>
@@ -142,7 +142,7 @@ function App() {
             <h2 className="text-2xl font-bold text-slate-800 mb-2">Core Learning Path</h2>
             <p className="text-slate-600">Essential phases to master full-stack development</p>
           </div>
-          
+
           <div className="space-y-8">
             {learningPath.phases.map((phase) => (
               <Phase
