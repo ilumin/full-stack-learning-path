@@ -22,7 +22,7 @@ phases:
               - "0.5: Single page app diagram"
               - "0.6: New note in Single page app diagram"
         additionals: []
-        
+
       - id: react
         name: "1. React"
         description: "เนื้อหาเจาะลึกเฉพาะส่วนที่ควรรู้เพื่อเอามาใช้งาน"
@@ -116,7 +116,7 @@ phases:
             url: "https://fullstackopen.com/en/part2/adding_styles_to_react_app"
             exercises: []
         additionals: []
-        
+
       - id: nodejs_express
         name: "3. NodeJS and Express"
         description: "เนื้อหาของฝั่ง server ที่แท้จริง"
@@ -209,7 +209,7 @@ phases:
               - "4.22: bloglist expansion, step10"
               - "4.23: bloglist expansion, step11"
         additionals: []
-        
+
       - id: testing_react
         name: "5. Testing React"
         description: "สอนพื้นฐานเกี่ยวกับการ test บน client"
@@ -308,7 +308,7 @@ phases:
         additionals:
           - name: "Zustand Tutorial"
             url: "https://zustand.docs.pmnd.rs/guides/tutorial-tic-tac-toe"
-            
+
       - id: react_router
         name: "7. React router"
         description: "เริ่มเข้าสู่เรื่องที่ advance ขึ้น เช่น page state, custom hooks"
@@ -361,7 +361,7 @@ phases:
         additionals:
           - name: "TanStack Router"
             url: "https://codeparrot.ai/blogs/tanstack-for-beginners-a-complete-guide-tutorial"
-            
+
       - id: typescript
         name: "9. TypeScript"
         description: "เอา use case ของ type ที่เจอบ่อยๆมาสอน"
@@ -462,7 +462,7 @@ phases:
             url: "https://fullstackopen.com/en/part12/basics_of_orchestration"
             exercises: []
         additionals: []
-        
+
       - id: relational_database
         name: "13. Relational database"
         description: "การจัดการฐานข้อมูล (แนะนำใช้ Drizzle/Prisma แทน Sequelize)"
@@ -491,18 +491,14 @@ phases:
             name: "Migration, many-to-many relationships"
             url: "https://fullstackopen.com/en/part13/migrations_many_to_many_relationships"
             exercises:
-              - "13.13: blog list, step13"
-              - "13.14: blog list, step14"
-              - "13.15: blog list, step15"
-              - "13.16: blog list, step16"
-              - "13.17: blog list, step17"
-              - "13.18: blog list, step18"
-              - "13.19: blog list, step19"
-              - "13.20: blog list, step20"
-              - "13.21: blog list, step21"
-              - "13.22: blog list, step22"
-              - "13.23: blog list, step23"
-              - "13.24: blog list, step24"
+              - "13.17: Delete all tables from your application's database."
+              - "13.18: Expand your application (by migration)."
+              - "13.19: Give users the ability to add blogs on the system to a reading list."
+              - "13.20: Add functionality to the application to support the reading list."
+              - "13.21: Expand the single-user route."
+              - "13.22: Implement functionality in the application to mark a blog in the reading list as read."
+              - "13.23: Modify the route that returns a single user's information."
+              - "13.24: Expand the system so that the user who has lost access will not be able to perform any actions that require login."
         additionals:
           - name: "Drizzle Todo App with Neon Postgres"
             url: "https://orm.drizzle.team/docs/tutorials/drizzle-nextjs-neon"
@@ -516,12 +512,12 @@ optional_modules:
     name: "8. GraphQL"
     description: "ไม่ค่อยมี use case ให้ใช้ ควรเรียนหัวข้ออื่นให้จบก่อน"
     url: "https://fullstackopen.com/en/part8"
-    
+
   - id: react_native
     name: "10. React Native"
     description: "ไม่ใช่ recommended techstack ของ AXONS"
     url: "https://fullstackopen.com/en/part10"
-    
+
   - id: ci_cd
     name: "11. CI/CD"
     description: "ไม่ใช่ขอบเขตที่เราต้องดูแล แต่อ่านเก็บความรู้ได้"
