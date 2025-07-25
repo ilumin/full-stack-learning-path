@@ -31,17 +31,17 @@ export const Phase: React.FC<PhaseProps> = ({
   const completedTasks = phase.modules.reduce((completed, module) => {
     return completed + module.chapters.reduce((chapterCompleted, chapter) => {
       let count = 0;
-      
+
       // Check chapter completion
       const chapterId = generateChapterId(module.id, chapter.id);
       if (isChapterCompleted(chapterId)) count++;
-      
+
       // Check exercise completion
       chapter.exercises.forEach((_, index) => {
         const exerciseId = generateExerciseId(module.id, chapter.id, index);
         if (isExerciseCompleted(exerciseId)) count++;
       });
-      
+
       return chapterCompleted + count;
     }, 0);
   }, 0);
@@ -59,35 +59,38 @@ export const Phase: React.FC<PhaseProps> = ({
   const colorClass = phaseColors[phase.id as keyof typeof phaseColors] || phaseColors.foundation;
 
   return (
-    <div className={`bg-gradient-to-br ${colorClass} rounded-2xl shadow-xl border-2 mb-8 overflow-hidden`}>
-      <div className="p-8">
+    <div className="bg-white rounded-lg border border-slate-200 shadow-sm mb-4 overflow-hidden">
+      <div className="p-4">
         {/* Phase Header */}
-        <div className="flex items-start justify-between mb-6">
-          <div className="flex-1">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></div>
-              <h2 className="text-2xl font-bold text-slate-800">{phase.name}</h2>
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 mb-2">
+              <h2 className="text-lg font-semibold text-slate-800 truncate">{phase.name}</h2>
             </div>
-            <p className="text-slate-700 mb-4 leading-relaxed max-w-3xl">{phase.description}</p>
-            
+            <p className="text-sm text-slate-600 mb-3 line-clamp-2">{phase.description}</p>
+
             {/* Progress Bar */}
-            <div className="max-w-md">
-              <ProgressBar 
-                progress={progress} 
-                label={`Progress • ${completedTasks}/${totalTasks} tasks`}
-                size="lg"
-                variant="primary"
-              />
+            <div className="flex items-center gap-3">
+              <div className="flex-1 max-w-xs">
+                <ProgressBar
+                  progress={progress}
+                  size="sm"
+                  showPercentage={false}
+                />
+              </div>
+              <span className="text-xs text-slate-500 font-mono whitespace-nowrap">
+                {completedTasks}/{totalTasks}
+              </span>
             </div>
           </div>
 
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="ml-6 p-3 text-slate-500 hover:text-slate-700 hover:bg-white/50 rounded-xl transition-all duration-200"
+            className="ml-4 p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-md transition-colors"
             aria-label={isExpanded ? 'Collapse phase' : 'Expand phase'}
           >
             <svg
-              className={`w-6 h-6 transform transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+              className={`w-4 h-4 transform transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -99,7 +102,7 @@ export const Phase: React.FC<PhaseProps> = ({
 
         {/* Phase Modules */}
         {isExpanded && (
-          <div className="space-y-6 animate-fade-in">
+          <div className="space-y-3 animate-fade-in">
             {phase.modules.map((module) => (
               <Module
                 key={module.id}
