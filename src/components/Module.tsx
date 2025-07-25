@@ -45,24 +45,36 @@ export const Module: React.FC<ModuleProps> = ({
   const progress = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
 
   return (
-    <div className="bg-white border border-gray-300 rounded-lg shadow-sm mb-6">
+    <div className="glass rounded-xl shadow-lg border border-white/20 mb-6 overflow-hidden">
       <div className="p-6">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex-1">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">{module.name}</h3>
-            <p className="text-gray-600 mb-3">{module.description}</p>
-            <ProgressBar 
-              progress={progress} 
-              label={`Progress (${completedTasks}/${totalTasks})`}
-              size="md"
-            />
+        {/* Module Header */}
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex-1 min-w-0">
+            <h3 className="text-lg font-semibold text-slate-800 mb-2">{module.name}</h3>
+            <p className="text-sm text-slate-600 mb-3 leading-relaxed">{module.description}</p>
+            
+            {/* Progress */}
+            <div className="flex items-center gap-3">
+              <div className="flex-1">
+                <ProgressBar 
+                  progress={progress} 
+                  size="sm"
+                  showPercentage={false}
+                />
+              </div>
+              <span className="text-xs text-slate-500 font-mono whitespace-nowrap">
+                {completedTasks}/{totalTasks}
+              </span>
+            </div>
           </div>
+
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="ml-4 text-gray-500 hover:text-gray-700 p-2"
+            className="ml-4 p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-all duration-200"
+            aria-label={isExpanded ? 'Collapse module' : 'Expand module'}
           >
             <svg
-              className={`w-6 h-6 transform transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+              className={`w-5 h-5 transform transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -72,41 +84,53 @@ export const Module: React.FC<ModuleProps> = ({
           </button>
         </div>
 
+        {/* Module Content */}
         {isExpanded && (
-          <div className="mt-6">
-            <h4 className="font-semibold text-gray-700 mb-4">Chapters:</h4>
-            {module.chapters.map((chapter) => {
-              const chapterId = generateChapterId(module.id, chapter.id);
-              return (
-                <Chapter
-                  key={chapter.id}
-                  chapter={chapter}
-                  moduleId={module.id}
-                  isChapterCompleted={isChapterCompleted(chapterId)}
-                  isExerciseCompleted={isExerciseCompleted}
-                  onToggleExercise={onToggleExercise}
-                  onToggleChapter={onToggleChapter}
-                />
-              );
-            })}
+          <div className="space-y-4 animate-fade-in">
+            {/* Chapters */}
+            <div className="space-y-3">
+              {module.chapters.map((chapter) => {
+                const chapterId = generateChapterId(module.id, chapter.id);
+                return (
+                  <Chapter
+                    key={chapter.id}
+                    chapter={chapter}
+                    moduleId={module.id}
+                    isChapterCompleted={isChapterCompleted(chapterId)}
+                    isExerciseCompleted={isExerciseCompleted}
+                    onToggleExercise={onToggleExercise}
+                    onToggleChapter={onToggleChapter}
+                  />
+                );
+              })}
+            </div>
             
+            {/* Additional Resources */}
             {module.additionals.length > 0 && (
-              <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-                <h5 className="font-medium text-blue-800 mb-3">Additional Resources:</h5>
-                <ul className="space-y-2">
+              <div className="mt-6 p-4 bg-blue-50/50 border border-blue-100 rounded-lg">
+                <h5 className="text-sm font-medium text-blue-800 mb-3 flex items-center">
+                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                  Additional Resources
+                </h5>
+                <div className="grid gap-2">
                   {module.additionals.map((additional, index) => (
-                    <li key={index}>
-                      <a
-                        href={additional.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 hover:underline"
-                      >
-                        {additional.name}
-                      </a>
-                    </li>
+                    <a
+                      key={index}
+                      href={additional.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 hover:underline transition-colors"
+                    >
+                      <svg className="w-3 h-3 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                        <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                      </svg>
+                      {additional.name}
+                    </a>
                   ))}
-                </ul>
+                </div>
               </div>
             )}
           </div>
