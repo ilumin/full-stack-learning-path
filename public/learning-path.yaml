@@ -159,9 +159,15 @@ phases:
               - "3.20: Phonebook database, step 8"
               - "3.21: Deploying the database backend to production"
               - "3.22: Lint configuration"
-        additionals:
-          - name: "NestJS Handbook"
+          - id: nestjs_handbook
+            name: "NestJS Handbook"
             url: "https://www.freecodecamp.org/news/the-nestjs-handbook-learn-to-use-nest-with-code-examples/"
+            exercises: []
+          - id: the_complete_nestjs_dev
+            name: "The complete NestJS developer. Enterprise Node.js framework"
+            url: "https://www.udemy.com/course/the-complete-nestjs-developer-enterprise-nodejs-framework/"
+            exercises: []
+        additionals: []
 
   - id: testing_quality
     name: "Phase 3: Testing & Quality"
