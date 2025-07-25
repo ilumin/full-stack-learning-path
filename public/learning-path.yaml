@@ -209,6 +209,307 @@ phases:
               - "4.22: bloglist expansion, step10"
               - "4.23: bloglist expansion, step11"
         additionals: []
+        
+      - id: testing_react
+        name: "5. Testing React"
+        description: "สอนพื้นฐานเกี่ยวกับการ test บน client"
+        chapters:
+          - id: login_frontend
+            name: "Login frontend"
+            url: "https://fullstackopen.com/en/part5/login_in_frontend"
+            exercises:
+              - "5.1: bloglist frontend, step1"
+              - "5.2: bloglist frontend, step2"
+              - "5.3: bloglist frontend, step3"
+              - "5.4: bloglist frontend, step4"
+          - id: props_children_and_proptypes
+            name: "props.children and proptypes"
+            url: "https://fullstackopen.com/en/part5/props_children_and_proptypes"
+            exercises:
+              - "5.5: Blog list frontend, step5"
+              - "5.6: Blog list frontend, step6"
+              - "5.7: Blog list frontend, step7"
+              - "5.8: Blog list frontend, step8"
+              - "5.9: Blog list frontend, step9"
+              - "5.10: Blog list frontend, step10"
+              - "5.11: Blog list frontend, step11"
+              - "5.12: Blog list frontend, step12"
+          - id: testing_react_apps
+            name: "Testing React apps"
+            url: "https://fullstackopen.com/en/part5/testing_react_apps"
+            exercises:
+              - "5.13: Blog list tests, step1"
+              - "5.14: Blog list tests, step2"
+              - "5.15: Blog list tests, step3"
+              - "5.16: Blog list tests, step4"
+          - id: e2e_testing_playwright
+            name: "E2E testing with Playwright"
+            url: "https://fullstackopen.com/en/part5/end_to_end_testing_playwright"
+            exercises:
+              - "5.17: bloglist end to end testing, step1"
+              - "5.18: bloglist end to end testing, step2"
+              - "5.19: bloglist end to end testing, step3"
+              - "5.20: bloglist end to end testing, step4"
+              - "5.21: bloglist end to end testing, step5"
+              - "5.22: bloglist end to end testing, step6"
+          - id: e2e_testing_cypress
+            name: "E2E testing with Cypress"
+            url: "https://fullstackopen.com/en/part5/end_to_end_testing_cypress"
+            exercises: []
+        additionals:
+          - name: "Outside-in React"
+            url: "https://outsidein.dev/react/"
+
+  - id: advanced_concepts
+    name: "Phase 4: Advanced Concepts"
+    description: "State management, routing และ TypeScript"
+    modules:
+      - id: advance_state_management
+        name: "6. Advanced state management"
+        description: "สอนไอเดียของการทำ React state ด้วย Redux"
+        chapters:
+          - id: flux_architecture_and_redux
+            name: "Flux-architecture and Redux"
+            url: "https://fullstackopen.com/en/part6/flux_architecture_and_redux"
+            exercises:
+              - "6.1: unicafe revisited, step1"
+              - "6.2: unicafe revisited, step2"
+          - id: many_reducers
+            name: "Many reducers"
+            url: "https://fullstackopen.com/en/part6/many_reducers"
+            exercises:
+              - "6.3: anecdotes, step1"
+              - "6.4: anecdotes, step2"
+              - "6.5: anecdotes, step3"
+              - "6.6: anecdotes, step4"
+              - "6.7: anecdotes, step5"
+              - "6.8: anecdotes, step6"
+          - id: communicating_with_server_in_redux
+            name: "Communicating with server in a Redux application"
+            url: "https://fullstackopen.com/en/part6/communicating_with_server_in_a_redux_application"
+            exercises:
+              - "6.9: anecdotes, step7"
+              - "6.10: anecdotes, step8"
+              - "6.11: anecdotes, step9"
+              - "6.12: anecdotes, step10"
+          - id: react_query_use_reducer_and_context
+            name: "React Query, useReducer and the context"
+            url: "https://fullstackopen.com/en/part6/react_query_use_reducer_and_the_context"
+            exercises:
+              - "6.13: anecdotes and the backend, step1"
+              - "6.14: anecdotes and the backend, step2"
+              - "6.15: anecdotes and the backend, step3"
+              - "6.16: anecdotes and the backend, step4"
+              - "6.17: anecdotes and the backend, step5"
+              - "6.18: anecdotes and the backend, step6"
+              - "6.19: anecdotes and connect, step1"
+              - "6.20: anecdotes and connect, step2"
+              - "6.21: anecdotes, the grand finale"
+        additionals:
+          - name: "Zustand Tutorial"
+            url: "https://zustand.docs.pmnd.rs/guides/tutorial-tic-tac-toe"
+            
+      - id: react_router
+        name: "7. React router"
+        description: "เริ่มเข้าสู่เรื่องที่ advance ขึ้น เช่น page state, custom hooks"
+        chapters:
+          - id: react_router
+            name: "React Router"
+            url: "https://fullstackopen.com/en/part7/react_router"
+            exercises:
+              - "7.1: routed anecdotes, step1"
+              - "7.2: routed anecdotes, step2"
+              - "7.3: routed anecdotes, step3"
+          - id: custom_hooks
+            name: "Custom hooks"
+            url: "https://fullstackopen.com/en/part7/custom_hooks"
+            exercises:
+              - "7.4: anecdotes and hooks step1"
+              - "7.5: anecdotes and hooks step2"
+              - "7.6: anecdotes and hooks step3"
+          - id: more_about_styles
+            name: "More about styles"
+            url: "https://fullstackopen.com/en/part7/more_about_styles"
+            exercises:
+              - "7.7: country hook"
+              - "7.8: ultimate hooks"
+          - id: webpack
+            name: "Webpack"
+            url: "https://fullstackopen.com/en/part7/webpack"
+            exercises: []
+          - id: class_components_misc
+            name: "Class components, Misc"
+            url: "https://fullstackopen.com/en/part7/class_components_miscellaneous"
+            exercises: []
+          - id: exercises
+            name: "Exercises"
+            url: "https://fullstackopen.com/en/part7/exercises_extending_the_bloglist"
+            exercises:
+              - "7.9: automatic code formatting"
+              - "7.10: redux, step1"
+              - "7.11: redux, step2"
+              - "7.12: redux, step3"
+              - "7.13: redux, step4"
+              - "7.14: Users view"
+              - "7.15: Individual user view"
+              - "7.16: Blog view"
+              - "7.17: Navigation"
+              - "7.18: comments, step1"
+              - "7.19: comments, step2"
+              - "7.20: Styles, step1"
+              - "7.21: Styles, step2"
+        additionals:
+          - name: "TanStack Router"
+            url: "https://codeparrot.ai/blogs/tanstack-for-beginners-a-complete-guide-tutorial"
+            
+      - id: typescript
+        name: "9. TypeScript"
+        description: "เอา use case ของ type ที่เจอบ่อยๆมาสอน"
+        chapters:
+          - id: background_and_introduction
+            name: "Background and introduction"
+            url: "https://fullstackopen.com/en/part9/background_and_introduction"
+            exercises: []
+          - id: first_steps_with_ts
+            name: "First steps with TS"
+            url: "https://fullstackopen.com/en/part9/first_steps_with_type_script"
+            exercises:
+              - "9.1: Body mass index"
+              - "9.2: Exercise calculator"
+              - "9.3: Command line"
+          - id: typing_an_express_app
+            name: "Typing an Express app"
+            url: "https://fullstackopen.com/en/part9/typing_an_express_app"
+            exercises:
+              - "9.4: Express"
+              - "9.5: WebBMI"
+              - "9.6: Eslint"
+              - "9.7: WebExercises"
+          - id: react_with_types
+            name: "React with types"
+            url: "https://fullstackopen.com/en/part9/react_with_types"
+            exercises:
+              - "9.8: Patientor backend, step1"
+              - "9.9: Patientor backend, step2"
+              - "9.10: Patientor backend, step3"
+              - "9.11: Patientor backend, step4"
+              - "9.12: Patientor backend, step5"
+              - "9.13: Patientor backend, step6"
+          - id: grande_finale
+            name: "Grande finale"
+            url: "https://fullstackopen.com/en/part9/grande_finale_patientor"
+            exercises:
+              - "9.14: Course information, step1"
+              - "9.15: Course information, step2"
+              - "9.16: Course information, step3"
+              - "9.17: Course information, step4"
+              - "9.18: Course information, step5"
+              - "9.19: Course information, step6"
+              - "9.20: Patientor, step1"
+              - "9.21: Patientor, step2"
+              - "9.22: Patientor, step3"
+              - "9.23: Patientor, step4"
+              - "9.24: Patientor, step5"
+              - "9.25: Patientor, step6"
+              - "9.26: Patientor, step7"
+              - "9.27: Patientor, step8"
+              - "9.28: Patientor, step9"
+              - "9.29: Patientor, step10"
+        additionals:
+          - name: "Scrimba - Typescript"
+            url: "https://scrimba.com/learn-typescript-c03c"
+
+  - id: production_ready
+    name: "Phase 5: Production Ready"
+    description: "Containerization และ Database management"
+    modules:
+      - id: containers
+        name: "12. Containers"
+        description: "สอนคำสั่งพื้นฐาน และการใช้งานใน dev"
+        chapters:
+          - id: introduction_to_containers
+            name: "Introduction to containers"
+            url: "https://fullstackopen.com/en/part12/introduction_to_containers"
+            exercises:
+              - "12.1: Using containers"
+              - "12.2: Running containers"
+          - id: building_and_configuring_environments
+            name: "Building and configuring environments"
+            url: "https://fullstackopen.com/en/part12/building_and_configuring_environments"
+            exercises:
+              - "12.3: Mandatory exercise"
+              - "12.4: Mandatory exercise"
+              - "12.5: Mandatory exercise"
+              - "12.6: Mandatory exercise"
+              - "12.7: Mandatory exercise"
+              - "12.8: Mandatory exercise"
+              - "12.9: Mandatory exercise"
+              - "12.10: Mandatory exercise"
+              - "12.11: Mandatory exercise"
+              - "12.12: Mandatory exercise"
+              - "12.13: Mandatory exercise"
+              - "12.14: Mandatory exercise"
+              - "12.15: Mandatory exercise"
+              - "12.16: Mandatory exercise"
+              - "12.17: Mandatory exercise"
+              - "12.18: Mandatory exercise"
+              - "12.19: Mandatory exercise"
+              - "12.20: Mandatory exercise"
+              - "12.21: Mandatory exercise"
+              - "12.22: Mandatory exercise"
+          - id: basics_of_orchestration
+            name: "Basics of Orchestration"
+            url: "https://fullstackopen.com/en/part12/basics_of_orchestration"
+            exercises: []
+        additionals: []
+        
+      - id: relational_database
+        name: "13. Relational database"
+        description: "การจัดการฐานข้อมูล (แนะนำใช้ Drizzle/Prisma แทน Sequelize)"
+        chapters:
+          - id: using_relational_databases_with_sequelize
+            name: "Using relational databases with Sequelize"
+            url: "https://fullstackopen.com/en/part13/using_relational_databases_with_sequelize"
+            exercises:
+              - "13.1: blog list, step1"
+              - "13.2: blog list, step2"
+              - "13.3: blog list, step3"
+              - "13.4: blog list, step4"
+          - id: join_tables_and_queries
+            name: "Join tables and queries"
+            url: "https://fullstackopen.com/en/part13/join_tables_and_queries"
+            exercises:
+              - "13.5: blog list, step5"
+              - "13.6: blog list, step6"
+              - "13.7: blog list, step7"
+              - "13.8: blog list, step8"
+              - "13.9: blog list, step9"
+              - "13.10: blog list, step10"
+              - "13.11: blog list, step11"
+              - "13.12: blog list, step12"
+          - id: migrations_many_to_many_relationships
+            name: "Migration, many-to-many relationships"
+            url: "https://fullstackopen.com/en/part13/migrations_many_to_many_relationships"
+            exercises:
+              - "13.13: blog list, step13"
+              - "13.14: blog list, step14"
+              - "13.15: blog list, step15"
+              - "13.16: blog list, step16"
+              - "13.17: blog list, step17"
+              - "13.18: blog list, step18"
+              - "13.19: blog list, step19"
+              - "13.20: blog list, step20"
+              - "13.21: blog list, step21"
+              - "13.22: blog list, step22"
+              - "13.23: blog list, step23"
+              - "13.24: blog list, step24"
+        additionals:
+          - name: "Drizzle Todo App with Neon Postgres"
+            url: "https://orm.drizzle.team/docs/tutorials/drizzle-nextjs-neon"
+          - name: "Prisma NestJS tutorial"
+            url: "https://docs.nestjs.com/recipes/prisma"
+          - name: "Scrimba - SQL"
+            url: "https://scrimba.com/intro-to-sql-c0aviq0aha"
 
 optional_modules:
   - id: graphql
