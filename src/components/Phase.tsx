@@ -59,7 +59,7 @@ export const Phase: React.FC<PhaseProps> = ({
   const colorClass = phaseColors[phase.id as keyof typeof phaseColors] || phaseColors.foundation;
 
   return (
-    <div className="bg-white rounded-lg border border-slate-200 shadow-sm mb-4 overflow-hidden">
+    <div className={`bg-gradient-to-br ${colorClass} rounded-2xl shadow-xl border-2 mb-8 overflow-hidden`}>
       <div className="p-4">
         {/* Phase Header */}
         <div className="flex items-center justify-between mb-3">
