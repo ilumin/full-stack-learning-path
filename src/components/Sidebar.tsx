@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import type { LearningPath } from '../types';
 import { ProgressBar } from './ProgressBar';
 import { ProgressManager } from './ProgressManager';
-import { calculateTotalExercises } from '../utils/learningPath';
+import { calculateTotalExercises, generateChapterId, generateExerciseId } from '../utils/learningPath';
 
 interface SidebarProps {
   learningPath: LearningPath;
@@ -23,43 +23,66 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   // Calculate overall stats
   const totalTasks = calculateTotalExercises(learningPath);
-  const completedTasks = Object.values(progress).filter(Boolean).length;
-  const overallProgress = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
 
-  // Calculate phase stats
-  const phaseStats = learningPath.phases.map(phase => {
-    const phaseTotalTasks = phase.modules.reduce((total, module) => {
-      return total + module.chapters.reduce((chapterTotal, chapter) => {
-        return chapterTotal + chapter.exercises.length + 1; // +1 for chapter completion
-      }, 0);
-    }, 0);
-
-    const phaseCompletedTasks = phase.modules.reduce((completed, module) => {
-      return completed + module.chapters.reduce((chapterCompleted, chapter) => {
+  // Calculate completed tasks the same way as phases do
+  const completedTasks = learningPath.phases.reduce((total, phase) => {
+    return total + phase.modules.reduce((moduleTotal, module) => {
+      return moduleTotal + module.chapters.reduce((chapterTotal, chapter) => {
         let count = 0;
 
         // Check chapter completion
-        const chapterId = `${module.id}-${chapter.id}`;
+        const chapterId = generateChapterId(module.id, chapter.id);
         if (isChapterCompleted(chapterId)) count++;
 
         // Check exercise completion
         chapter.exercises.forEach((_, index) => {
-          const exerciseId = `${module.id}-${chapter.id}-${index}`;
+          const exerciseId = generateExerciseId(module.id, chapter.id, index);
           if (isExerciseCompleted(exerciseId)) count++;
         });
 
-        return chapterCompleted + count;
+        return chapterTotal + count;
       }, 0);
     }, 0);
+  }, 0);
 
-    return {
-      id: phase.id,
-      name: phase.name,
-      progress: phaseTotalTasks > 0 ? Math.round((phaseCompletedTasks / phaseTotalTasks) * 100) : 0,
-      completed: phaseCompletedTasks,
-      total: phaseTotalTasks
-    };
-  });
+  const overallProgress = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+
+  // Calculate phase stats - use useMemo to recalculate when progress changes
+  const phaseStats = useMemo(() => {
+    return learningPath.phases.map(phase => {
+      const phaseTotalTasks = phase.modules.reduce((total, module) => {
+        return total + module.chapters.reduce((chapterTotal, chapter) => {
+          return chapterTotal + chapter.exercises.length + 1; // +1 for chapter completion
+        }, 0);
+      }, 0);
+
+      const phaseCompletedTasks = phase.modules.reduce((completed, module) => {
+        return completed + module.chapters.reduce((chapterCompleted, chapter) => {
+          let count = 0;
+
+          // Check chapter completion
+          const chapterId = generateChapterId(module.id, chapter.id);
+          if (isChapterCompleted(chapterId)) count++;
+
+          // Check exercise completion
+          chapter.exercises.forEach((_, index) => {
+            const exerciseId = generateExerciseId(module.id, chapter.id, index);
+            if (isExerciseCompleted(exerciseId)) count++;
+          });
+
+          return chapterCompleted + count;
+        }, 0);
+      }, 0);
+
+      return {
+        id: phase.id,
+        name: phase.name,
+        progress: phaseTotalTasks > 0 ? Math.round((phaseCompletedTasks / phaseTotalTasks) * 100) : 0,
+        completed: phaseCompletedTasks,
+        total: phaseTotalTasks
+      };
+    });
+  }, [learningPath.phases, progress, isChapterCompleted, isExerciseCompleted]);
 
   const completedPhases = phaseStats.filter(phase => phase.progress === 100).length;
 
