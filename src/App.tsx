@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next"
 import { useState, useEffect, useRef } from 'react';
 import type { LearningPath } from './types';
 import { loadLearningPath, calculateTotalExercises } from './utils/learningPath';
@@ -203,6 +204,9 @@ function App() {
           </footer>
         </main>
       </div>
+
+      {/* vercel analytics */}
+      <Analytics />
     </div>
   );
 }
